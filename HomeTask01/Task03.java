@@ -33,7 +33,7 @@ public class Task03 {
       break;            
 
       default:
-          System.out.println("Mistake!");
+          System.out.println("ERROR!");
         break;
 
       }
