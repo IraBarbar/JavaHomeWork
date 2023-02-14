@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Task03 {
   public static void main(String[] args) {
     Scanner iScanner = new Scanner(System.in);
-    System.out.printf("Input the fist number: ");
+    System.out.printf("Input the first number: ");
     int num1 = iScanner.nextInt();
 
     System.out.printf("Input  symbol: ");
@@ -16,29 +16,24 @@ public class Task03 {
     int num2 = iScanner.nextInt();
     iScanner.close();
     
-    int res = 0;
-
     switch (sym) {
       case "+":
-        res = num1 + num2;
+        System.out.printf("\t %d %s %d = %d", num1, sym, num2, num1 + num2);
         break;
       case "-":
-        res = num1 - num2;
-      break;
+        System.out.printf("\t %d %s %d = %d", num1, sym, num2, num1 - num2);
+        break;
       case "*":
-        res = num1 * num2;
-      break;
+        System.out.printf("\t %d %s %d = %d", num1, sym, num2, num1 * num2);
+        break;
       case "/":
-        res = num1/num2;
-      break;            
-
-      default:
-          System.out.println("ERROR!");
+        double num1D = num1; double num2D = num2;
+        System.out.printf("\t %d %s %d = %.2f", num1, sym, num2, num1D/ num2D);
         break;
 
-      }
-      System.out.printf("\t %d %s %d = %d", num1, sym, num2, res);
-      System.out.println();  
-
+      default:
+        System.out.println("ERROR!");
+        break;
+    }
   }
 }
