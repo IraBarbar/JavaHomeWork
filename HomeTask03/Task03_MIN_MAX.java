@@ -47,7 +47,7 @@ public class Task03_MIN_MAX {
     private static ArrayList<Integer> addArrayList() {
         ArrayList<Integer> arrList = new ArrayList<>();
         int size = arrList.size();
-        size = 15;
+        size = 20;
         Random num = new Random();
         for (int i = 0; i < size; i++)
             arrList.add(num.nextInt(0, 100));

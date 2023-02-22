@@ -5,6 +5,7 @@ package HomeTask03;
 import java.sql.Array;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.PriorityQueue;
 import java.util.Random;
 import java.util.Set;
 
@@ -15,6 +16,8 @@ public class Task01_SORT {
         System.out.println(Arrays.toString(arr));
         sortArr(arr);
         System.out.println(Arrays.toString(arr));
+        // сортировка через PriorityQueue:
+        System.out.println(sortThroughQueue(arr));
     }
 
     private static void sortArr(int[] arr) {
@@ -94,5 +97,13 @@ public class Task01_SORT {
         } 
         return arr;
         } 
+    
+    private static PriorityQueue<Integer> sortThroughQueue(int []arr) {
+        PriorityQueue<Integer> pq = new PriorityQueue<Integer>();
+        for (Integer integer : arr) {
+            pq.add(integer);
+        }
+        return pq;
+    }    
     }
     
