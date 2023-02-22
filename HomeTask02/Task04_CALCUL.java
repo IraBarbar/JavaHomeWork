@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.logging.*;
 
 public class Task04_CALCUL {
+  private static Object readln;
+
   public static void main(String[] args) throws IOException {
     String pathProject = System.getProperty("user.dir");
     String pathFile = pathProject.concat("/log_cal.txt");
@@ -42,11 +44,18 @@ public class Task04_CALCUL {
     strLog(result, pathFile);
   }
 
+  /**
+   * @param str
+   * @param pathFile
+   * @throws IOException
+   */
   public static void strLog(String str, String pathFile) throws IOException {
     try {
       Logger logger = Logger.getLogger(Task04_CALCUL.class.getName());
       FileHandler fh = new FileHandler(pathFile);
       logger.addHandler(fh);
+      writeln (a);
+      readln ;
 
       SimpleFormatter sFormat = new SimpleFormatter();
       fh.setFormatter(sFormat);

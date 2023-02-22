@@ -80,7 +80,7 @@ public class Task01_SORT {
         int i = 0;
         while (i < size) {
             int randomNumber = random.nextInt(1, 50);
-            if (set.contains(randomNumber) == false) {
+            if (!set.contains(randomNumber)) {
                 set.add(randomNumber);
                 i++;
             }

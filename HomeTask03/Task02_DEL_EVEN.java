@@ -7,10 +7,21 @@ import java.util.Random;
 
 public class Task02_DEL_EVEN {
     public static void main(String[] args) {
-        System.out.println("\tПервоначальный список:");
-        System.out.println(addArrayList());
-        System.out.println("\tСписок без четных чисел:");
-        System.out.println(deletEven(addArrayList()));
+        ArrayList <Integer> myList = addArrayList();
+        System.out.printf("Первоначальный список: ");
+        System.out.println(myList);
+
+        System.out.printf("Список без четных чисел через remove:   ");
+        System.out.println(deletEven(myList));
+
+        System.out.printf("Список без четных чисел через removeIf: ");
+        System.out.println(deletEvenIF(myList));
+    }
+
+    private static ArrayList<Integer> deletEvenIF(ArrayList<Integer> arrList) {
+        arrList.removeIf(i -> i % 2 == 0);
+        return arrList;
+        
     }
 
     private static ArrayList<Integer> addArrayList() {
