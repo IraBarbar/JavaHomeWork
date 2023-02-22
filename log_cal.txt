@@ -1,2 +1,2 @@
-февр. 20, 2023 11:39:19 AM HomeTask02.Task04_CALCUL strLog
-INFO: 78.0 * 2222.0 = 173316.0
+февр. 20, 2023 2:07:21 PM HomeTask02.Task04_CALCUL strLog
+INFO: 5.0 + 6.0 = 11.0

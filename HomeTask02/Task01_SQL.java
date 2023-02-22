@@ -23,7 +23,7 @@ public class Task01_SQL {
         students.add(dict(student3));
 
         String key = "city";
-        String valueYes = "Minsk"; // будет печатать только с таким значением, пустая строка - выведет все значения
+        String valueYes = "Minsk"; // будет печатать только с таким значением
 
         findKey(students, key,  valueYes);
     }

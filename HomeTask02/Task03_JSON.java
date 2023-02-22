@@ -17,7 +17,7 @@ import java.io.*;
 public class Task03_JSON {
     public static void main(String[] args) {
 
-        String line = new String();
+        String line = "";
         try {
             String pathProject = System.getProperty("user.dir");
             String pathFile = pathProject.concat("/j.json");
@@ -38,11 +38,11 @@ public class Task03_JSON {
                             .replace("}", "")
                             .replace(":", " ")
                             .replace("\"", "")
-                            .strip());
+                            .trim());
                     String[] a = line.split(" ");
-                    String name = new String();
-                    String grade = new String();
-                    String predmet = new String();
+                    String name = "";
+                    String grade = "";
+                    String predmet = "";
                     for (int i = 0; i < a.length; i++) {
                         if (a[i].equals("фамилия") == true)
                             name = a[i + 1];
@@ -51,10 +51,8 @@ public class Task03_JSON {
                         if (a[i].equals("предмет") == true)
                             predmet = a[i + 1];
                     }
-                    String toFile = "Студент " + name + " получил " + grade + " по предмету " + predmet + ".\n";
-                    writeFile(toFile, file2 );
-                    
-                    System.out.println(toFile);  
+                    line = "Студент " + name + " получил " + grade + " по предмету " + predmet + ".\n";
+                    writeFile(line, file2);
                 }
                 bufReader.close();
             }
@@ -63,12 +61,17 @@ public class Task03_JSON {
         } finally {
         }
     }
-public static void writeFile(String str, File file ) throws IOException {
-    FileWriter fileWriter = new FileWriter(file, true);
-    fileWriter.write(str);
-    fileWriter.close();
-}                
+
+    public static void writeFile(String str, File file) throws IOException {
+        try {
+            FileWriter fileWriter = new FileWriter(file, true);
+            fileWriter.write(str);
+            fileWriter.close();
+            
+        } catch (Exception e) {
+            // TODO: handle exception
+        } finally{
+            System.out.println(str);
+        }
+    }
 }
-
-
-                   
