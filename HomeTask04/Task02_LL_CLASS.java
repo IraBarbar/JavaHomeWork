@@ -14,8 +14,8 @@ public class Task02_LL_CLASS {
         System.out.println(queue01.enqueue(10));
         System.out.printf("Очередь в порядке добавления элементов, последний добавленный в конце ");
         queue01.showLL();
-        System.out.printf("Возвращаем первый элемент из очереди и удаляем его: ");
-        System.out.println(queue01.dequeue());
+        System.out.printf("Возвращаем первый элемент из очереди и удаляем его: %s, %s, %s\n",
+                queue01.dequeue(), queue01.dequeue(), queue01.dequeue());
         System.out.printf("Есть ли элементы в очереди: %s\n", queue01.empty());
         System.out.printf("Первый элемент в очереди: %s\n", queue01.first());
         System.out.printf("Размер очереди : %s\n", queue01.size());

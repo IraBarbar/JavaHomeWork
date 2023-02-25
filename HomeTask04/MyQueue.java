@@ -6,9 +6,9 @@ package HomeTask04;
 import java.util.LinkedList;
 
 public class MyQueue {
-    LinkedList<Integer> myLinkedList = new LinkedList<>();
-    int length = 0;
-    int element;
+    private LinkedList<Integer> myLinkedList = new LinkedList<>();
+    private int length = 0;
+    private int element;
 
     int size() {
         length = myLinkedList.size();
@@ -24,18 +24,23 @@ public class MyQueue {
         return myLinkedList.isEmpty();
     }
 
-    int first() {
-        element = myLinkedList.peekFirst();
-        return element;
+    Integer first() {
+        if (!empty()) {
+            element = myLinkedList.peekFirst();
+            return element;
+        }
+        return null;
     }
 
-    int dequeue() {
-        element = myLinkedList.removeFirst();
-        return element;
+    Integer dequeue() {
+        if (!empty()) {
+            element = myLinkedList.removeFirst();
+            return element;
+        } else
+            return null;
     }
 
     void showLL() {
         System.out.println(myLinkedList);
     }
-
 }
