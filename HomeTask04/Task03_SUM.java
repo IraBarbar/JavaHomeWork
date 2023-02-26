@@ -15,7 +15,7 @@ public class Task03_SUM {
         System.out.println(queue);
 
         System.out.printf("Сумма всех элементов %s: ", name);
-        System.out.println(Sum(queue));
+        System.out.println(sum(queue));
     }
     private static Queue<Integer> addQueue() {
         Queue<Integer> queue = new LinkedList<Integer>();
@@ -27,7 +27,7 @@ public class Task03_SUM {
         }
         return queue;
     }
-    private static Integer Sum(Queue<Integer> queue) {
+    private static Integer sum(Queue<Integer> queue) {
         int sum = 0;
         for (Integer integer : queue) {
             sum += integer;

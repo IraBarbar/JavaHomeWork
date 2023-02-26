@@ -12,9 +12,6 @@ import java.util.Scanner;
 import java.util.jar.JarException;
 
 public class Directory {
-    String pathProject = System.getProperty("user.dir");
-    String pathFile = pathProject.concat("/directory.json");
-    File file = new File(pathFile);
 
     void writeFile(HashMap<String, ArrayList<String>> map, File file) throws IOException {
         try {
@@ -32,16 +29,21 @@ public class Directory {
     void readFile(String file) throws JarException {
         try {
             List<String> num = Files.readAllLines(Paths.get(file));
-            System.out.println(num);
+            for (String string : num) {
+                System.out.println(string.replace("{", "")
+                        .replace("}", "")
+                        .replace("[", "")
+                        .replace("]", "")
+                        .replace("=", " : "));
+            }
         } catch (Exception e) {
             // e.printStackTrace();
         } finally {
         }
-
     }
 
     String inputName(Scanner iScanner) {
-        System.out.printf("Введите Фамилию: ");
+        System.out.printf("Input lastname: ");
         String name = iScanner.next();
         return name;
     }
@@ -53,5 +55,66 @@ public class Directory {
         } catch (NumberFormatException e) {
             return false;
         }
+    }
+
+    ArrayList<String> inputPhone(Scanner iScanner) {
+        ArrayList<String> phones = new ArrayList<>();
+        boolean no = false;
+        while (!no) {
+            System.out.printf("Input phone number: ");
+            String phone = System.console().readLine();
+            phones.add(phone);
+            System.out.printf("Would you like to enter another phone number (1/2):\n 1. Yes\n 2. No\n ");
+            String answer = System.console().readLine();
+            if (isDigit(answer)) {
+                if (Integer.parseInt(answer) == 2) {
+                    no = true;
+                    break;
+                }
+            }
+        }
+        return phones;
+    }
+
+    HashMap<String, ArrayList<String>> addContact(String name, ArrayList<String> phoneContact) {
+        HashMap<String, ArrayList<String>> contact = new HashMap<>();
+        contact.put(name, phoneContact);
+        return contact;
+    }
+
+    /**
+     * @param file
+     * @param iScanner
+     * @throws JarException
+     */
+    void editContact(String file, Scanner iScanner) throws JarException {
+        String word = userSearch(iScanner).toLowerCase();
+        try {
+            List<String> num = Files.readAllLines(Paths.get(file));
+            boolean noFind = true;
+            for (String string : num) {
+                string = string.replace("{", "")
+                        .replace("}", "")
+                        .replace("[", "")
+                        .replace("]", "");
+                if (string.toLowerCase().indexOf(word) != -1) {
+                    System.out.println(string);
+                    noFind = false;
+                }            
+            }
+            if (noFind == true) {
+                System.out.println("Nothing found.");
+            }
+
+        } catch (Exception e) {
+            // e.printStackTrace();
+        } finally {
+        }
+    }
+    String userSearch(Scanner iScanner){
+        String searchWord = "";
+        System.out.printf("Enter search value: ");
+        searchWord = iScanner.next().trim();
+        return searchWord;
     }
 }
