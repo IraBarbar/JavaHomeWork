@@ -32,9 +32,7 @@ public class Directory {
             for (String string : num) {
                 System.out.println(string.replace("{", "")
                         .replace("}", "")
-                        .replace("[", "")
-                        .replace("]", "")
-                        .replace("=", " : "));
+                        .replace("=", ": "));
             }
         } catch (Exception e) {
             // e.printStackTrace();
@@ -43,8 +41,10 @@ public class Directory {
     }
 
     String inputName(Scanner iScanner) {
-        System.out.printf("Input lastname: ");
+        System.out.printf("Input namelast: ");
         String name = iScanner.next();
+        System.out.printf("Input name: ");
+        name = name + " " + iScanner.next();
         return name;
     }
 
@@ -93,19 +93,14 @@ public class Directory {
             List<String> num = Files.readAllLines(Paths.get(file));
             boolean noFind = true;
             for (String string : num) {
-                string = string.replace("{", "")
-                        .replace("}", "")
-                        .replace("[", "")
-                        .replace("]", "");
                 if (string.toLowerCase().indexOf(word) != -1) {
                     System.out.println(string);
                     noFind = false;
                 }            
             }
             if (noFind == true) {
-                System.out.println("Nothing found.");
+                System.out.println("Nothing found!");
             }
-
         } catch (Exception e) {
             // e.printStackTrace();
         } finally {
