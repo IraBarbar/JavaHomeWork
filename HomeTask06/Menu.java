@@ -122,11 +122,11 @@ public class Menu {
             return 64;
             else {
                 System.out.println("Invalid number!");
-                colorSelect(iScanner);
+                memorySelect(iScanner);
             }
         } else {
             System.out.println("Invalid number!");
-            colorSelect(iScanner);
+            memorySelect(iScanner);
         }
         return 0;
     }
@@ -153,11 +153,11 @@ public class Menu {
             return 2048;
             else {
                 System.out.println("Invalid number!");
-                colorSelect(iScanner);
+                driveSelect(iScanner);
             }
         } else {
             System.out.println("Invalid number!");
-            colorSelect(iScanner);
+            driveSelect(iScanner);
         }
         return 0;
     }
@@ -185,11 +185,11 @@ public class Menu {
             return "Linux";
             else {
                 System.out.println("Invalid number!");
-                colorSelect(iScanner);
+                osSelect(iScanner);
             }
         } else {
             System.out.println("Invalid number!");
-            colorSelect(iScanner);
+            osSelect(iScanner);
         }
         return "";
     }
