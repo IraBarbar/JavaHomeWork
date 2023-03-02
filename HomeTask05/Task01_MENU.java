@@ -20,11 +20,11 @@ public class Task01_MENU {
         Scanner iScanner = new Scanner(System.in, "UTF-8");
 
         
-        punkt( pathFile, directory, file, iScanner);
+        startMenu( pathFile, directory, file, iScanner);
         iScanner.close();
     }
 
-    static int startMenu(Scanner iScanner, Directory directory) {
+    static int punktMenu(Scanner iScanner, Directory directory) {
         String numMenu = "";
         System.out.println("\tSelect menu item:" +
                 "\n\t1. View all contacts." +
@@ -36,13 +36,13 @@ public class Task01_MENU {
             return Integer.parseInt(numMenu);
         } else {
             System.out.println("Invalid number!");
-            startMenu(iScanner, directory);
+            punktMenu(iScanner, directory);
         }
         return 10;
     }
 
-    static void punkt( String pathFile, Directory directory, File file, Scanner iScanner) {
-        switch (startMenu(iScanner, directory)) {
+    static void startMenu( String pathFile, Directory directory, File file, Scanner iScanner) {
+        switch (punktMenu(iScanner, directory)) {
             case 1:
                 try {
                     directory.readFile(pathFile);
@@ -50,7 +50,7 @@ public class Task01_MENU {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
-                punkt(pathFile, directory, file, iScanner);;
+                startMenu(pathFile, directory, file, iScanner);;
                 break;
             case 2:
                 HashMap<String, ArrayList<String>> contact = directory.addContact(directory.inputName(iScanner),
@@ -61,7 +61,7 @@ public class Task01_MENU {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
-                punkt(pathFile, directory, file, iScanner);;
+                startMenu(pathFile, directory, file, iScanner);;
                 break;
             case 3:
                 try {
@@ -70,13 +70,13 @@ public class Task01_MENU {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
-                punkt(pathFile, directory, file, iScanner);;
+                startMenu(pathFile, directory, file, iScanner);;
                 break;
             case 4:
                 break;
             default:
                 System.out.println("Invalid number!");
-                punkt(pathFile, directory, file, iScanner);;
+                startMenu(pathFile, directory, file, iScanner);;
                 break;
         }
     }
